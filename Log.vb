@@ -18,9 +18,7 @@ Public Class Log
     Private Description As String
     Private Payload As String
 
-    Public Sub New(ByVal CurrentDateTime As Date, ByVal Employee_ID As String, ByVal Role As String, ByVal Method As String,
-                   ByVal Description As String, Optional ByVal Payload As String = "None")
-        ' Initialize object.
+    Public Sub New(CurrentDateTime As Date, Employee_ID As String, Role As String, Method As String, Description As String, Optional Payload As String = "None")
 
         Me.CurrentDateTime = CurrentDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff")
         Me.Employee_ID = Employee_ID
@@ -28,8 +26,7 @@ Public Class Log
         Me.Method = Method
         Me.Description = Description
         Me.Payload = Payload
-
-        ' Call method to write above data to a log file.
+        
         WriteToFile()
 
     End Sub
