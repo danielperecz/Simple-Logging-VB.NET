@@ -1,6 +1,7 @@
 Public Class Log
 
     ' Log file settings.
+    Private ReadOnly LOGS_FOLDER = "C:\Users\Daniel\Documents\Logs"
     Private ReadOnly LINE_LIMIT As Integer = 10000          ' Max line limit for file. If file reaches this number, a new file will be created.
     Private ReadOnly LOG_TYPE_PADDING As Integer = 6
     Private ReadOnly METHOD_PADDING As Integer = 40
@@ -24,7 +25,7 @@ Public Class Log
     Private Function SelectFile() As String
         ' Return full path to log file to be used.
         
-        Dim newFilePath As String = GlobalVariables.Logs & "\" & Date.Now.ToString("yyyy.MM.dd_HH.mm.ss") & ".txt"
+        Dim newFilePath As String = LOGS_FOLDER + "\" + Date.Now.ToString("yyyy.MM.dd_HH.mm.ss") + ".txt"
         Dim folder As IO.DirectoryInfo = New IO.DirectoryInfo(GlobalVariables.Logs)
 
         If folder.GetFiles.Length = 0 Then
